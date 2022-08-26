@@ -1,0 +1,6 @@
+version: "3"
+services:
+  diffusor:
+    image: guestros/stable-diffusion:weights-1.4
+    build: .
+    
