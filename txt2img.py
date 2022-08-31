@@ -18,7 +18,7 @@ from ldm.util import instantiate_from_config
 from ldm.models.diffusion.ddim import DDIMSampler
 from ldm.models.diffusion.plms import PLMSSampler
 
-from diffusers.pipelines.stable_diffusion.safety_checker import StableDiffusionSafetyChecker
+# from diffusers.pipelines.stable_diffusion.safety_checker import StableDiffusionSafetyChecker
 from transformers import AutoFeatureExtractor
 
 
@@ -85,14 +85,14 @@ def load_replacement(x):
 
 
 def check_safety(x_image):
-    safety_checker_input = safety_feature_extractor(numpy_to_pil(x_image), return_tensors="pt")
+#     safety_checker_input = safety_feature_extractor(numpy_to_pil(x_image), return_tensors="pt")
     # x_checked_image, has_nsfw_concept = safety_checker(images=x_image, clip_input=safety_checker_input.pixel_values)
-    x_checked_image = x_image
+#     x_checked_image = x_image
     # assert x_checked_image.shape[0] == len(has_nsfw_concept)
     # for i in range(len(has_nsfw_concept)):
     #     if has_nsfw_concept[i]:
     #         x_checked_image[i] = load_replacement(x_checked_image[i])
-    return x_checked_image, False # has_nsfw_concept
+    return x_image, False # has_nsfw_concept
 
 
 def main():
